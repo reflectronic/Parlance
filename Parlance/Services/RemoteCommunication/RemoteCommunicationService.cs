@@ -16,21 +16,21 @@ public class RemoteCommunicationService : IRemoteCommunicationService
     public Credentials CredentialsHandler(string url, string usernameFromUrl, SupportedCredentialTypes types)
     {
         //TODO: Check number of retries
-        try
-        {
-            var key = _dbContext.SshKeys.First();
-            
-            return new SshKeyMemoryCredentials
-            {
-                Username = usernameFromUrl,
-                PublicKey = key.SshKeyContents,
-                PrivateKey = key.SshPrivateKeyContents
-            };
-        }
-        catch (InvalidOperationException)
-        {
-            return new DefaultCredentials();
-        }
+        //try
+        //{
+        //    var key = _dbContext.SshKeys.First();
+
+        //    return new SshKeyMemoryCredentials
+        //    {
+        //        Username = usernameFromUrl,
+        //        PublicKey = key.SshKeyContents,
+        //        PrivateKey = key.SshPrivateKeyContents
+        //    };
+        //}
+        //catch (InvalidOperationException)
+        //{
+        return new DefaultCredentials();
+        //}
     }
 
     public bool CertificateCheckHandler(Certificate certificate, bool valid, string host)
